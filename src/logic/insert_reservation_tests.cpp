@@ -6,10 +6,10 @@ TEST_CASE("insert_in_order", "[insert_reservation]")
 {
     std::vector<Reservation> reservations;
 
-    std::vector<std::string> stops = { "A", "B", "C", "D", "E" };
-    Reservation r1 { "A", "B" };
-    Reservation r2 { "B", "C" };
-    Reservation r3 { "C", "D" };
+    std::vector<std::string> stops = {"A", "B", "C", "D", "E"};
+    Reservation r1{"A", "B"};
+    Reservation r2{"B", "C"};
+    Reservation r3{"C", "D"};
 
     insert_reservation(r1, reservations, stops);
     REQUIRE(reservations.size() == 1);
@@ -37,10 +37,10 @@ TEST_CASE("insert_out_of_order", "[insert_reservation]")
 {
     std::vector<Reservation> reservations;
 
-    std::vector<std::string> stops = { "A", "B", "C", "D", "E" };
-    Reservation r1 { "A", "B" };
-    Reservation r2 { "B", "C" };
-    Reservation r3 { "C", "D" };
+    std::vector<std::string> stops = {"A", "B", "C", "D", "E"};
+    Reservation r1{"A", "B"};
+    Reservation r2{"B", "C"};
+    Reservation r3{"C", "D"};
 
     insert_reservation(r3, reservations, stops);
     REQUIRE(reservations.size() == 1);
@@ -68,10 +68,10 @@ TEST_CASE("insert_invalid", "[insert_reservation]")
 {
     std::vector<Reservation> reservations;
 
-    std::vector<std::string> stops = { "A", "B", "C", "D", "E" };
-    Reservation r1 { "A", "F" }; // Ungültiger Zielort
-    Reservation r2 { "F", "A" }; // Ungültiger Abfahrtsort
-    Reservation r3 { "D", "C" }; // Falsche Reihenfolge
+    std::vector<std::string> stops = {"A", "B", "C", "D", "E"};
+    Reservation r1{"A", "F"}; // Ungültiger Zielort
+    Reservation r2{"F", "A"}; // Ungültiger Abfahrtsort
+    Reservation r3{"D", "C"}; // Falsche Reihenfolge
 
     insert_reservation(r1, reservations, stops);
     REQUIRE(reservations.size() == 0);

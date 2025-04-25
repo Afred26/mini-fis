@@ -14,19 +14,17 @@ Display::Display(std::string const& initialText)
 
 void Display::updateText(std::string const& newText)
 {
-    // TODO
+    text = newText;
 }
 
 std::string Display::getText() const
 {
-    // TODO
 
-    return "";
+    return text;
 }
 
 void Display::show() const
 {
-    // TODO
 
     // Geben Sie das Ergebnis von `getText()` auf der Konsole aus.
 
@@ -34,4 +32,7 @@ void Display::show() const
     // eine grafische Benutzeroberfläche oder ein physisches Display
     // angesprochen werden, um den Text anzuzeigen.
     // Wir verwenden einfach std::cout, um den Text auf die Konsole auszugeben.
+
+    std::cout << text << std::endl;
+
 }
