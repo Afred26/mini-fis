@@ -7,12 +7,12 @@ Display::Display()
 {
 }
 
-Display::Display(std::string const& initialText)
-    : text { initialText }
+Display::Display(std::string const &initialText)
+    : text{initialText}
 {
 }
 
-void Display::updateText(std::string const& newText)
+void Display::updateText(std::string const &newText)
 {
     text = newText;
 }
@@ -34,5 +34,4 @@ void Display::show() const
     // Wir verwenden einfach std::cout, um den Text auf die Konsole auszugeben.
 
     std::cout << text << std::endl;
-
 }

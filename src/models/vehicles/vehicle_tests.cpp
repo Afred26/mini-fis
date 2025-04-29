@@ -63,7 +63,7 @@ TEST_CASE("add_invalid_reservation", "[vehicle]")
     Reservation r("B", "A"); // ungültige Reservierung
     v.addReservation(0, "42", r);
 
-    REQUIRE(v.reservations[0].size() == 1);
+    REQUIRE(v.reservations[0].size() == 0);
     REQUIRE(v.reservations[0]["42"].empty());
 }
 

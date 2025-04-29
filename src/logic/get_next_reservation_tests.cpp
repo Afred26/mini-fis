@@ -4,11 +4,13 @@
 
 TEST_CASE("get_next_reservation", "[get_next_reservation]")
 {
-    std::vector<std::string> stops = { "A", "B", "C", "D", "E" };
-    Reservation r1 { "A", "B" };
-    Reservation r2 { "B", "C" };
-    Reservation r3 { "D", "E" };
-    std::vector<Reservation> reservations { r1, r2, r3 };
+    std::vector<std::string> stops = {"A", "B", "C", "D", "E", "F", "G", "H", "I"};
+    Reservation r1{"A", "B"};
+    Reservation r2{"B", "C"};
+    Reservation r3{"D", "E"};
+    Reservation r4{"E", "F"};
+    Reservation r5{"G", "I"};
+    std::vector<Reservation> reservations{r1, r2, r3, r4, r5};
 
     Reservation n1 = get_next_reservation(reservations, "A", stops);
     REQUIRE(n1.from == "A");
@@ -29,4 +31,20 @@ TEST_CASE("get_next_reservation", "[get_next_reservation]")
     Reservation n5 = get_next_reservation(reservations, "E", stops);
     REQUIRE(n5.from == "D");
     REQUIRE(n5.to == "E");
+
+    Reservation n6 = get_next_reservation(reservations, "F", stops);
+    REQUIRE(n6.from == "E");
+    REQUIRE(n6.to == "F");
+
+    Reservation n7 = get_next_reservation(reservations, "G", stops);
+    REQUIRE(n7.from == "G");
+    REQUIRE(n7.to == "I");
+
+    Reservation n8 = get_next_reservation(reservations, "H", stops);
+    REQUIRE(n8.from == "G");
+    REQUIRE(n8.to == "I");
+
+    Reservation n9 = get_next_reservation(reservations, "I", stops);
+    REQUIRE(n9.from == "G");
+    REQUIRE(n9.to == "I");
 }

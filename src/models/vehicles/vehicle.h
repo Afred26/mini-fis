@@ -12,7 +12,8 @@
 /// Diese Klassen enthält zum Einen Informationen über die Wagen-Konfiguration
 /// des Zuges und zum Anderen Informationen über den Fahrplan und die aktuelle
 /// Position des Zuges.
-struct Vehicle {
+struct Vehicle
+{
 
     /// Die Liste der Wagen (Coaches) im Zug.
     std::vector<Coach> coaches;
@@ -33,14 +34,14 @@ struct Vehicle {
     Vehicle();
 
     /// Fügt einen neuen Wagen (Coach) zum Zug hinzu.
-    void addCoach(Coach const& coach);
+    void addCoach(Coach const &coach);
 
     /// Fügt eine neue Station zur Route hinzu.
-    void addStop(std::string const& stop);
+    void addStop(std::string const &stop);
 
     /// Fügt eine Reservierung für einen Sitzplatz hinzu.
     /// Erwartet den Wagen-Index, die Sitzplatz-ID und die Reservierung.
-    void addReservation(size_t coachIndex, std::string const& seatId, Reservation const& reservation);
+    void addReservation(size_t coachIndex, std::string const &seatId, Reservation const &reservation);
 
     /// Setzt die aktuelle Station des Zuges auf die Stelle pos in der Route.
     /// Falls die Position nicht existiert, wird next_stop auf den leeren String gesetzt.

@@ -22,16 +22,32 @@ void insert_reservation(Reservation const &reservation, std::vector<Reservation>
 
 Reservation get_next_reservation(std::vector<Reservation> const &reservations, std::string const &next_stop, std::vector<std::string> const &stops)
 {
-    // TODO
+    for (Reservation el : reservations)
+    {
+        if (el.from == next_stop)
+        {
+            return el;
+        }
+        else if (el.to == next_stop)
+        {
+            return el;
+        }
+    }
+    for (int i = 0; i < stops.size(); i++)
+    {
+        if (stops.at(i) == next_stop)
+        {
+            return get_next_reservation(reservations, stops.at(i - 1), stops);
+        }
+    }
 
     return Reservation();
 }
 
 bool is_valid_for_route(Reservation const &reservation, std::vector<std::string> const &stops)
 {
-    // TODO
 
-    return true;
+    return valid_reservation(reservation, stops);
 }
 
 bool is_first(Reservation const &reservation1, Reservation const &reservation2, std::vector<std::string> const &stops)
